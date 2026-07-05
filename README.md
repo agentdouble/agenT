@@ -17,15 +17,45 @@ Les performances d'un modele dependent souvent moins du volume brut de donnees q
 
 `agenT` vise a analyser ces problemes automatiquement, puis a proposer une liste d'actions concrete pour ameliorer le dataset.
 
-## Version minimale
+## V0 disponible
 
-Une premiere version peut se concentrer sur un workflow simple :
+La v0 fournit une CLI Python sans dependance externe pour analyser un dataset CSV.
 
-1. Charger un dataset texte, image ou tabulaire.
-2. Generer des embeddings pour chaque exemple.
-3. Detecter les clusters, doublons, outliers et incoherences de labels.
-4. Afficher une vue d'inspection claire.
-5. Proposer des actions : supprimer, relabeler, fusionner, reequilibrer ou collecter plus de donnees.
+Elle detecte :
+
+- les valeurs manquantes ;
+- les lignes exactement dupliquees ;
+- les outliers numeriques avec la methode IQR ;
+- la distribution des labels ;
+- les conflits de labels sur un meme texte ;
+- les quasi-doublons textuels simples ;
+- une liste d'actions recommandees.
+
+## Utilisation
+
+Analyser le dataset d'exemple :
+
+```bash
+python3 -m agent.cli examples/sample_dataset.csv
+```
+
+Ecrire le rapport dans un fichier JSON :
+
+```bash
+python3 -m agent.cli examples/sample_dataset.csv --output report.json
+```
+
+Specifier explicitement les colonnes :
+
+```bash
+python3 -m agent.cli examples/sample_dataset.csv --text-column text --label-column label
+```
+
+## Tests
+
+```bash
+python3 -m unittest
+```
 
 ## Pourquoi c'est important
 
@@ -44,4 +74,4 @@ Un outil qui montre ou les donnees sont faibles peut reduire les couts d'entrain
 
 ## Statut
 
-Le projet est au stade de cadrage initial.
+Le projet dispose d'une v0 locale pour CSV. Les prochaines etapes naturelles sont l'ajout d'embeddings, d'une interface d'inspection et d'un score d'impact par correction proposee.

@@ -1,0 +1,9 @@
+id,text,label,age,score
+1,"Great battery life and crisp screen",positive,31,0.91
+2,"Great battery life and crisp screen",positive,31,0.91
+3,"great screen crisp battery life and",negative,32,0.88
+4,"Delivery arrived late and box was damaged",negative,29,0.12
+5,"Delivery arrived late and box was damaged",positive,29,0.13
+6,"The setup flow was simple",positive,45,0.77
+7,"The setup flow was simple",positive,,0.79
+8,"Support never replied to my ticket",negative,120,0.08

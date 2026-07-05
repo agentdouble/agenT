@@ -1,0 +1,12 @@
+[project]
+name = "agent-dataset-lens"
+version = "0.1.0"
+description = "A v0 dataset quality analyzer for AI training data."
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+agent-lens = "agent.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
